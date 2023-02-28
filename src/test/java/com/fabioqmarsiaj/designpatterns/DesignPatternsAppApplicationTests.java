@@ -1,5 +1,7 @@
 package com.fabioqmarsiaj.designpatterns;
 
+import com.fabioqmarsiaj.designpatterns.prototype.PrototypeFalse;
+import com.fabioqmarsiaj.designpatterns.prototype.PrototypeTrue;
 import com.fabioqmarsiaj.designpatterns.singleton.SpringSingleton;
 import com.fabioqmarsiaj.designpatterns.singleton.TraditionalSingleton;
 import org.junit.Assert;
@@ -18,6 +20,18 @@ public class DesignPatternsAppApplicationTests {
     @Autowired
     SpringSingleton springSingleton2;
 
+    @Autowired
+    PrototypeTrue prototypeTrue1;
+
+    @Autowired
+    PrototypeTrue prototypeTrue2;
+
+    @Autowired
+    PrototypeFalse prototypeFalse1;
+
+    @Autowired
+    PrototypeFalse prototypeFalse2;
+
     @Test
     public void testSingletons() {
 
@@ -28,5 +42,12 @@ public class DesignPatternsAppApplicationTests {
         Assert.assertSame(traditionalSingleton1, traditionalSingleton2);
         Assert.assertNotNull(springSingleton);
         Assert.assertSame(springSingleton, springSingleton2);
+    }
+
+    @Test
+    public void testPrototypes() {
+        Assert.assertSame(prototypeFalse1, prototypeFalse2);
+        Assert.assertNotSame(prototypeTrue1, prototypeTrue2);
+
     }
 }
