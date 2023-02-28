@@ -17,16 +17,16 @@ public class FactoryController {
     @Autowired
     private PetFactory petFactory;
 
-    @PostMapping("adoptPet/{type}/{name}")
-    public Pet adoptPet(@PathVariable String type, @PathVariable String name) {
+    @PostMapping("petFactory/{type}/{name}")
+    public Pet petFactory(@PathVariable String type, @PathVariable String name) {
         Pet pet = this.petFactory.createPet(type);
         pet.setName(name);
         pet.feed();
         return pet;
     }
 
-    @GetMapping("presidents")
-    public List<Contact> getPresidents(){
+    @GetMapping("builder")
+    public List<Contact> contactBuilder(){
 
         //Without BUILDER pattern...
         List<Contact> contacts = new ArrayList<>();
